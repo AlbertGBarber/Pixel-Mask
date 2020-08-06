@@ -420,7 +420,7 @@ void loop() {
           breakEffectCheck();
           tempRandPallet[0] = 0; //background color for spin patterns (off)
           rowCenSegments.flipSegDirectionEvery(1, true);
-          strip.colorSpin( rowCenSegments, spinPatternHeart, SIZE(spinPatternHeart), tempRandPallet, 0, 2, true, 100, 110 );
+          //strip.colorSpin( rowCenSegments, spinPatternHeart, SIZE(spinPatternHeart), tempRandPallet, 0, 2, true, 100, 110 );
         }
         break;
       case 1:
@@ -430,16 +430,16 @@ void loop() {
         strip.shooterSeg( colSegments, pallet, 5, 0, 12, 1, 1, 3, 2, false, false, 60, 170); //rainbow
         break;
       case 3:
-        strip.shooterSeg( rowHalfSegments, pallet, 3, 0, 10, 1, 1, 3, 4, true, false, 70, 170);
+        //strip.shooterSeg( rowHalfSegments, pallet, 3, 0, 10, 1, 1, 3, 4, true, false, 70, 170);
         break;
       case 4:
-        strip.shooterSeg( rowHalfSegments, pallet, 5, 0, 10, 1, 1, 3, 2, true, false, 70, 170); //rainbow
+        //strip.shooterSeg( rowHalfSegments, pallet, 5, 0, 10, 1, 1, 3, 2, true, false, 70, 170); //rainbow
         break;
       case 5:
-        strip.shooterSeg( rowHalfSegments, pallet, 5, 0, 8, 1, 3, 3, 4, true, false, 70, 150);
+        //strip.shooterSeg( rowHalfSegments, pallet, 5, 0, 8, 1, 3, 3, 4, true, false, 70, 150);
         break;
       case 6:
-        strip.shooterSeg( colSegments, pallet, 5, 0, 8, 1, 3, 3, 4, false, false, 70, 150);
+        //strip.shooterSeg( colSegments, pallet, 5, 0, 8, 1, 3, 3, 4, false, false, 70, 150);
         break;
       case 7:
         strip.shooterSeg( colHalfFlipSegments, pallet, 4, 0, 5, 6, 1, 6, 4, true, false, 70, 180);
@@ -448,7 +448,7 @@ void loop() {
         strip.patternSweepRand( 6, -1, 0, 1, 6, true, 0, 1, 60, 200 );
         break;
       case 9:
-        strip.doFireV2Seg( colSegments, firePallet, SIZE(firePallet), 25, 200, true, 300, 70);
+        //strip.doFireV2Seg( colSegments, firePallet, SIZE(firePallet), 25, 200, true, 300, 70);
         break;
       case 10:
         for (int i = 0; i < 3; i++) {
@@ -459,7 +459,7 @@ void loop() {
       case 11:
         for (int i = 0; i < 2; i++) {
           breakEffectCheck();
-          strip.gradientCycleRand( 5, 6, 150, direct, 100);
+          //strip.gradientCycleRand( 5, 6, 150, direct, 100);
           direct = !direct;
         }
         break;
@@ -486,45 +486,45 @@ void loop() {
         strip.rainbowWave( rowSegments, 80, false, 8, 20);
         break;
       case 17:
-        strip.waves( colSegments, pastelRainbowPallet, SIZE(pastelRainbowPallet),  pastelRainbowPattern, SIZE(pastelRainbowPattern), 50, false, 5, 45);
+        //strip.waves( colSegments, pastelRainbowPallet, SIZE(pastelRainbowPallet),  pastelRainbowPattern, SIZE(pastelRainbowPattern), 50, false, 5, 45);
         break;
       case 18:
         for (int i = 0; i < 10; i++) {
           breakEffectCheck();
-          strip.colorWipeRandomSeg( colSegments, 2, 2, 7, 90, true, true, true);
+          //strip.colorWipeRandomSeg( colSegments, 2, 2, 7, 90, true, true, true);
           breakEffectCheck();
-          strip.colorWipeSeg(colSegments, 0, 7, 90, false, true, true);
+          //strip.colorWipeSeg(colSegments, 0, 7, 90, false, true, true);
         }
         break;
       case 19:
         for (int i = 0; i < 6; i++) {
           breakEffectCheck();
           uint32_t color = RC();
-          strip.crossFadeColor(0, color, 30, 30);
+          //strip.crossFadeColor(0, color, 30, 30);
           breakEffectCheck();
-          strip.crossFadeColor(color, 0, 30, 30);
+          //strip.crossFadeColor(color, 0, 30, 30);
         }
         break;
       case 20:
         for (int i = 0; i < 2; i++) {
           breakEffectCheck();
-          strip.randomWaves( colSegments, 5, 3, 2, 50, direct, 7, 20);
+          //strip.randomWaves( colSegments, 5, 3, 2, 50, direct, 7, 20);
           direct = !direct;
         }
         break;
       case 21:
         for (int i = 0; i < 2; i++) {
           breakEffectCheck();
-          strip.randomWaves( rowSegments, 4, 2, 2, 50, direct, 7, 20);
+          //strip.randomWaves( rowSegments, 4, 2, 2, 50, direct, 7, 20);
           direct = !direct;
         }
         break;
       case 22:
         for (int i = 0; i < 6; i++) {
           breakEffectCheck();
-          strip.colorWipeRandomSeg( rowHalfSegments, 2, 2, 0, 130, direct, false, true);
+          //strip.colorWipeRandomSeg( rowHalfSegments, 2, 2, 0, 130, direct, false, true);
           breakEffectCheck();
-          strip.colorWipeSeg(rowHalfSegments, 0, 0, 130, !direct, false, true);
+          //strip.colorWipeSeg(rowHalfSegments, 0, 0, 130, !direct, false, true);
           direct = !direct;
         }
         break;
@@ -534,8 +534,8 @@ void loop() {
           colCenSegments.flipSegDirectionEvery(1, true);
           strip.genRandPallet( tempRandPallet, SIZE(tempRandPallet) );
           tempRandPallet[0] = 0; //background color for spin patterns (off)
-          strip.fillStrip(tempRandPallet[2], false);
-          strip.colorSpin( colCenSegments, spinPatternArrowsVert2, SIZE(spinPatternArrowsVert2), tempRandPallet, 0, 1, true, 100, 110 );
+          //strip.fillStrip(tempRandPallet[2], false);
+          //strip.colorSpin( colCenSegments, spinPatternArrowsVert2, SIZE(spinPatternArrowsVert2), tempRandPallet, 0, 1, true, 100, 110 );
         }
         break;
       case 24:
@@ -543,9 +543,9 @@ void loop() {
           breakEffectCheck();
           strip.genRandPallet( tempRandPallet, SIZE(tempRandPallet) );
           tempRandPallet[0] = 0; //background color for spin patterns (off)
-          strip.fillStrip(tempRandPallet[1], false);
+          //strip.fillStrip(tempRandPallet[1], false);
           rowHalfCenSegments.flipSegDirectionEvery(1, true); //reverse the direction of each segment of rowLensesHalvesSegments
-          strip.colorSpin( rowHalfCenSegments, spinPatternArrows2, SIZE(spinPatternArrows2), tempRandPallet, 0, 1, true, 100, 100 );
+          //strip.colorSpin( rowHalfCenSegments, spinPatternArrows2, SIZE(spinPatternArrows2), tempRandPallet, 0, 1, true, 100, 100 );
         }
         break;
       case 25:
@@ -554,7 +554,7 @@ void loop() {
           strip.genRandPallet( tempRandPallet, SIZE(tempRandPallet) );
           tempRandPallet[0] = 0; //background color for spin patterns (off)
           strip.fillStrip(tempRandPallet[1], false);
-          strip.colorSpin( rowHalfCenSegments, spinPatternX, SIZE(spinPatternX), tempRandPallet, 0, 1, true, 100, 110 );
+          //strip.colorSpin( rowHalfCenSegments, spinPatternX, SIZE(spinPatternX), tempRandPallet, 0, 1, true, 100, 110 );
           rowHalfCenSegments.flipSegDirectionEvery(1, true); //reverse the direction of each segment of rowLensesHalvesSegments
         }
         break;
@@ -569,7 +569,7 @@ void loop() {
         }
         break;
       case 27:
-        strip.colorSpinSimple( rowHalfSegments, 5, 0, 0, 3, -1, 3, 0, 1, 170, 120 );
+        //strip.colorSpinSimple( rowHalfSegments, 5, 0, 0, 3, -1, 3, 0, 1, 170, 120 );
         break;
       case 28:
         strip.colorSpinSimple( rowSegments, 1, 0, 0, 5, 1, 0, 0, 2, 170, 100 ); //rainbow half
@@ -578,7 +578,7 @@ void loop() {
         for (int i = 0; i < 2; i++) {
           breakEffectCheck();
           colHalfSegments.flipSegDirectionEvery(1, true);
-          strip.colorSpinSimple( colHalfSegments, 5, 0, 0, 3, -1, 3, 0, 1, 120, 80 );
+          //strip.colorSpinSimple( colHalfSegments, 5, 0, 0, 3, -1, 3, 0, 1, 120, 80 );
         }
         break;
       case 30:
@@ -596,26 +596,26 @@ void loop() {
         }
         break;
       case 32:
-        strip.simpleStreamerRand( 5, 0, 7, 0, 0, true, 160, 80);
+        //strip.simpleStreamerRand( 5, 0, 7, 0, 0, true, 160, 80);
         break;
       case 33:
         strip.patternSweepRand( 12, white, -1, 0, 0, false, 0, 1, 60, 280 );
         break;
       case 34:
         strip.genRandPallet( tempRandPallet, SIZE(tempRandPallet) );
-        strip.randomColorSet(off, true, tempRandPallet, SIZE(tempRandPallet), 100, 5, 20000);
+        //strip.randomColorSet(off, true, tempRandPallet, SIZE(tempRandPallet), 100, 5, 20000);
         break;
       case 35:
         for (int i = 0; i < 2; i++) {
           breakEffectCheck();
-          strip.segGradientCycleRand(rowSegments, 3, 7, 150, direct, 1, 100);
+          //strip.segGradientCycleRand(rowSegments, 3, 7, 150, direct, 1, 100);
           direct = !direct;
         }
         break;
       case 36:
         for (int i = 0; i < 2; i++) {
           breakEffectCheck();
-          strip.segGradientCycleRand(colSegments, 3, 7, 150, direct, 1, 100);
+          //strip.segGradientCycleRand(colSegments, 3, 7, 150, direct, 1, 100);
           direct = !direct;
         }
         break;
@@ -625,11 +625,11 @@ void loop() {
         for (int i = 0; i < 2; i++) {
           breakEffectCheck();
           rowCenSegments.flipSegDirectionEvery(1, true);
-          strip.colorSpin( rowCenSegments, spinPatternHelix, SIZE(spinPatternHelix), tempRandPallet, 0, 1, true, 100, 100 );
+         // strip.colorSpin( rowCenSegments, spinPatternHelix, SIZE(spinPatternHelix), tempRandPallet, 0, 1, true, 100, 100 );
         }
         break;
       case 38:
-        strip.colorSpin( rowCenSegments, spinPatternUSflag, SIZE(spinPatternUSflag), pallet, 0, 1, false, 130, 100 );
+       // strip.colorSpin( rowCenSegments, spinPatternUSflag, SIZE(spinPatternUSflag), pallet, 0, 1, false, 130, 100 );
         break;
       case 39:
         tempTwinklePallet[0] = RC();
@@ -640,7 +640,7 @@ void loop() {
         //rainbow() only does one full cycle, we'll do 3 to extend its duration
         for (int i = 0; i < 3; i++) {
           breakEffectCheck();
-          strip.rainbow(35);
+          //strip.rainbow(35);
         }
         break;
       default:
