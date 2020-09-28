@@ -86,6 +86,7 @@ const uint32_t red =      strip.Color(255, 0, 0);
 const uint32_t orange =   strip.Color(255, 43, 0);
 const uint32_t ltOrange = strip.Color(255, 143, 0);
 const uint32_t yellow =   strip.Color(255, 255, 0);
+const uint32_t ltYellow = strip.Color(255, 255, 100);
 const uint32_t green =    strip.Color(0, 128, 0);
 const uint32_t blue =     strip.Color(0, 0, 255);
 const uint32_t indigo =   strip.Color( 75, 0, 130);
@@ -111,7 +112,7 @@ uint32_t christmasPallet[5] = { red, blue, green, yellow, purple };
 uint32_t pastelRainbowPallet[] = { pastelRainbow, pastelRainbow1 , pastelRainbow2, pastelRainbow3, pastelRainbow4, pastelRainbow5, pastelRainbow6 };
 byte pastelRainbowPattern[] = {  6, 6, 1, 1, 2, 2, 5, 5, 4, 4, 3, 3, 0, 0 };
 
-uint32_t firePallet[3] = { red, ltOrange, white };
+uint32_t firePallet[3] = { red, ltOrange, ltYellow };
 
 uint32_t firePallet2[3] = { purple, pink, white };
 //byte wavepattern[]  = { 6, 1 };
@@ -333,6 +334,8 @@ void ICACHE_RAM_ATTR brightnessAdjust() {
 
 //increments the effect index (wrapping if needed)
 void incrementEffectIndex() {
+  strip.runRainbowOffsetCycle(false);
+  strip.setRainbowOffset(0);
   effectIndex = (effectIndex + 1) % numEffects;
 }
 
@@ -445,10 +448,11 @@ void loop() {
         strip.shooterSeg( colHalfFlipSegments, pallet, 4, 0, 5, 6, 1, 6, 4, true, false, 70, 180);
         break;
       case 8:
-        strip.patternSweepRand( 6, -1, 0, 1, 6, true, 0, 1, 60, 200 );
+        //strip.genRandPallet( tempRandPallet, SIZE(tempRandPallet) );
+        //strip.patternSweepSetRand( 9, tempRandPallet,  SIZE(tempRandPallet), 0, 1, 4, true, 0, 1, 60, 200);
         break;
       case 9:
-        //strip.doFireV2Seg( colSegments, firePallet, SIZE(firePallet), 25, 200, true, 300, 70);
+        strip.doFireV2Seg( colSegments, firePallet, SIZE(firePallet), 25, 200, true, 300, 70);
         break;
       case 10:
         for (int i = 0; i < 3; i++) {
@@ -572,6 +576,8 @@ void loop() {
         //strip.colorSpinSimple( rowHalfSegments, 5, 0, 0, 3, -1, 3, 0, 1, 170, 120 );
         break;
       case 28:
+        strip.setRainbowOffsetCycle(40, false);
+        strip.runRainbowOffsetCycle(true);
         strip.colorSpinSimple( rowSegments, 1, 0, 0, 5, 1, 0, 0, 2, 170, 100 ); //rainbow half
         break;
       case 29:
@@ -599,6 +605,8 @@ void loop() {
         //strip.simpleStreamerRand( 5, 0, 7, 0, 0, true, 160, 80);
         break;
       case 33:
+        strip.setRainbowOffsetCycle(40, true);
+        strip.runRainbowOffsetCycle(true);
         strip.patternSweepRand( 12, white, -1, 0, 0, false, 0, 1, 60, 280 );
         break;
       case 34:
@@ -625,11 +633,11 @@ void loop() {
         for (int i = 0; i < 2; i++) {
           breakEffectCheck();
           rowCenSegments.flipSegDirectionEvery(1, true);
-         // strip.colorSpin( rowCenSegments, spinPatternHelix, SIZE(spinPatternHelix), tempRandPallet, 0, 1, true, 100, 100 );
+          // strip.colorSpin( rowCenSegments, spinPatternHelix, SIZE(spinPatternHelix), tempRandPallet, 0, 1, true, 100, 100 );
         }
         break;
       case 38:
-       // strip.colorSpin( rowCenSegments, spinPatternUSflag, SIZE(spinPatternUSflag), pallet, 0, 1, false, 130, 100 );
+        // strip.colorSpin( rowCenSegments, spinPatternUSflag, SIZE(spinPatternUSflag), pallet, 0, 1, false, 130, 100 );
         break;
       case 39:
         tempTwinklePallet[0] = RC();
