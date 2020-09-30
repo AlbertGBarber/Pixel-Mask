@@ -293,7 +293,7 @@ void ICACHE_RAM_ATTR nextEffect() {
     resetSegDirections();
     EEPROM.write(CUR_EFFECT_ADDR, (effectIndex + 1) % numEffects);
     //stop any other commit timers and start a new one
-    //EEPROMcommiter.detach();
+    EEPROMcommiter.detach();
     EEPROMcommiter.once_ms(EEPROM_COM_TIME, commitEEPROM);
   }
   //if button 2 is being held, stop/start the effect cycle
@@ -315,7 +315,7 @@ void ICACHE_RAM_ATTR effectRotaToggle() {
     effectRota = !effectRota;
     EEPROM.write(EFFECT_ROT_ADDR, effectRota);
     //stop any other commit timers and start a new one
-    //EEPROMcommiter.detach();
+    EEPROMcommiter.detach();
     EEPROMcommiter.once_ms(EEPROM_COM_TIME, commitEEPROM);
   }
 }
@@ -328,7 +328,7 @@ void ICACHE_RAM_ATTR brightnessAdjust() {
   strip.setBrightness( brightnessLevels[ brightnessIndex ] );
   EEPROM.write(BRIGHTNESS_ADDR, brightnessIndex);
   //stop any other commit timers and start a new one
-  //EEPROMcommiter.detach();
+  EEPROMcommiter.detach();
   EEPROMcommiter.once_ms(EEPROM_COM_TIME, commitEEPROM);
 }
 
