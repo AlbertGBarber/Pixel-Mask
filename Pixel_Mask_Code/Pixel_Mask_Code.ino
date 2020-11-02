@@ -277,7 +277,6 @@ uint32_t tempTwinklePallet[2]; //used for twinkle effect, we are only twinkling 
 //this allows the data to change while the user is pressing buttons, and we'll only commit
 //the final values once they are done
 void ICACHE_RAM_ATTR commitEEPROM() {
-
   EEPROM.commit();
 }
 
@@ -334,6 +333,7 @@ void ICACHE_RAM_ATTR brightnessAdjust() {
 
 //increments the effect index (wrapping if needed)
 void incrementEffectIndex() {
+  resetSegDirections();
   strip.runRainbowOffsetCycle(false);
   strip.setRainbowOffset(0);
   effectIndex = (effectIndex + 1) % numEffects;
@@ -656,8 +656,7 @@ void loop() {
       default:
         //if we don't find an effect for the current effectIndex, we'll move to the next effect
         //this is for when an effect is set to always be skipped
-        incrementEffectIndex();
-        resetSegDirections();
+        //incrementEffectIndex();
         break;
     }
     //if effectRota is true we'll advance to the effect index
