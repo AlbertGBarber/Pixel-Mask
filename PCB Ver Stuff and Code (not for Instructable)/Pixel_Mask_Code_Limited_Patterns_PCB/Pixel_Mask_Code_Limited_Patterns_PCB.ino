@@ -66,7 +66,7 @@ byte brightnessIndex = 1; //initial brightness, index of brightnessLevels array
 //brightness levels array, max is 255, but 100 should be bright enough for amost all cases
 //!!WARNING brightness is directly tied to power consumption, the max current per led is 60ma, this is for white at 255 brightness
 //if you actually run all the leds at max, the glasses will draw 4.75 amps, this is beyond the rating of the jst connectors
-const byte brightnessLevels[] = { 10, 30, 140, 230 };
+const byte brightnessLevels[] = { 40, 60, 100, 240 };;
 const byte numBrightnessLevels = SIZE( brightnessLevels );
 
 //Strip definitions
@@ -333,29 +333,10 @@ void ICACHE_RAM_ATTR brightnessAdjust() {
 
 //increments the effect index (wrapping if needed)
 void incrementEffectIndex() {
-  resetSegDirections();
+  resetSegDirections(); //see segmentDefs
   strip.runRainbowOffsetCycle(false);
   strip.setRainbowOffset(0);
   effectIndex = (effectIndex + 1) % numEffects;
-}
-
-//resets all the segments to their default directions (as set in segmentDefs)
-void resetSegDirections() {
-  colSegments.setsegDirectionEvery(2, true, true);
-  colSegments.setsegDirectionEvery(2, false, false);
-
-  colHalfSegments.setsegDirectionEvery(2, false, true);
-  colHalfSegments.setsegDirectionEvery(2, true, false);
-
-  colHalfFlipSegments.setsegDirectionEvery(1, true, true);
-
-  colCenSegments.setsegDirectionEvery(2, true, true);
-  colCenSegments.setsegDirectionEvery(2, false, false);
-
-  rowSegments.setsegDirectionEvery(1, true, true);
-
-  rowHalfSegments.setsegDirectionEvery(2, false, true);
-  rowHalfSegments.setsegDirectionEvery(2, true, false);
 }
 
 void setup() {

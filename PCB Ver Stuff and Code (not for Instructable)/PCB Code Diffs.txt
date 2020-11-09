@@ -1,0 +1,4 @@
+The led directions on the PCb are reversed, so the segment sections are also reversed
+
+PCB led brightness is lower for some reason so values in the brightness index have been 
+increased to compensate

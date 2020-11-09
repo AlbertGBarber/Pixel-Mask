@@ -22,7 +22,7 @@
 //code intended to run on esp8266, Wemos D1 mini
 //requires lastest version of adafruit neopixel library (use the library manager)
 #include <PixelStrip.h>
-#include "segmentDefs.h"
+#include "segmentDefsPCB.h"
 #include <EEPROM.h>
 #include <Ticker.h>
 
@@ -66,7 +66,7 @@ byte brightnessIndex = 1; //initial brightness, index of brightnessLevels array
 //brightness levels array, max is 255, but 100 should be bright enough for amost all cases
 //!!WARNING brightness is directly tied to power consumption, the max current per led is 60ma, this is for white at 255 brightness
 //if you actually run all the leds at max, the glasses will draw 4.75 amps, this is beyond the rating of the jst connectors
-const byte brightnessLevels[] = { 10, 30, 140, 230 };
+const byte brightnessLevels[] = { 30, 50, 150, 230 };
 const byte numBrightnessLevels = SIZE( brightnessLevels );
 
 //Strip definitions
