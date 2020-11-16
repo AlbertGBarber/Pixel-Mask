@@ -43,31 +43,32 @@ Segment colSegment11 = { SIZE(colSec11), colSec11, true }; //numSections, sectio
 Segment *cols_arr[] = {&colSegment0, &colSegment1, &colSegment2, &colSegment3, &colSegment4, &colSegment5, &colSegment6, &colSegment7, &colSegment8, &colSegment9, &colSegment10, &colSegment11 }; 
 SegmentSet colSegments = { SIZE(cols_arr), cols_arr }; 
 
-//=================================================================================
-//Column Halves: mask is split into two continuous columns, right and left
-//by default the are arranged tp start in the center
+//=====================================================================================================
+//Column Halves: mask is split into two continuous columns, right and left, 
+//by default the are arranged to start in the center at the top
 
-segmentSection colHalfSec0[] = {{0, 52}}; //col 0 , 52 pixels
+segmentSection colHalfSec0[] = { {51, -13}, {38, -11}, {27, -9}, {18, -7}, {11, -7}, {4, -5} }; //col 0 , 52 pixels
 Segment colHalfSegment0 = { SIZE(colHalfSec0), colHalfSec0, true }; //numSections, section array pointer, direction
 
-segmentSection colHalfSec1[] = {{52, 52}}; //col 1, 52 pixels,
-Segment colHalfSegment1 = { SIZE(colHalfSec1), colHalfSec1, false }; //numSections, section array pointer, direction
+segmentSection colHalfSec1[] = { {52, 13}, {65, 11}, {76, 9}, {85, 7}, {92, 7}, {99, 5} }; //col 1, 52 pixels, facing reverse direction from col 1
+Segment colHalfSegment1 = { SIZE(colHalfSec1), colHalfSec1, true }; //numSections, section array pointer, direction
 
 Segment *colHalf_arr[] = { &colHalfSegment0, &colHalfSegment1 };
 SegmentSet colHalfSegments = { SIZE(colHalf_arr), colHalf_arr };
 
-//=====================================================================================================
+//=================================================================================
 //Column Halves Filpped: mask is split into two continuous columns, right and left, but the columns directions are filpped
-//by default the are arranged tp start in the center
+//by default the are arranged to start in the center, at the top
 
-segmentSection colHalfFlipSec0[] = {{39, 13}, {28, 11}, {19, 9}, {12, 7}, {5, 7}, {0, 5}}; //col 0 , 52 pixels
+segmentSection colHalfFlipSec0[] = {{0, 52}}; //col 0 , 52 pixels
 Segment colHalfFlipSegment0 = { SIZE(colHalfFlipSec0), colHalfFlipSec0, false }; //numSections, section array pointer, direction
 
-segmentSection colHalfFlipSec1[] = { {64, -13}, {75, -11}, {84, -9}, {91, -7}, {98, -7}, {103, -5} }; //col 1, 52 pixels, facing reverse direction from col 1
-Segment colHalfFlipSegment1 = { SIZE(colHalfFlipSec1), colHalfFlipSec1, false }; //numSections, section array pointer, direction
+segmentSection colHalfFlipSec1[] = {{52, 52}}; //col 1, 52 pixels,
+Segment colHalfFlipSegment1 = { SIZE(colHalfFlipSec1), colHalfFlipSec1, true }; //numSections, section array pointer, direction
 
 Segment *colHalfFlip_arr[] = { &colHalfFlipSegment0, &colHalfFlipSegment1 };
 SegmentSet colHalfFlipSegments = { SIZE(colHalfFlip_arr), colHalfFlip_arr };
+
 
 //========================================================================================================
 //column centers only. Only the center 7 pixels of each column, left to right, top to bottom
@@ -267,10 +268,10 @@ void resetSegDirections() {
   colSegments.setsegDirectionEvery(2, true, false);
   colSegments.setsegDirectionEvery(2, false, true);
 
-  colHalfSegments.setsegDirectionEvery(2, false, false);
-  colHalfSegments.setsegDirectionEvery(2, true, true);
+  colHalfFlipSegments.setsegDirectionEvery(2, true, false);
+  colHalfFlipSegments.setsegDirectionEvery(2, false, true);
 
-  colHalfFlipSegments.setsegDirectionEvery(1, false, true);
+  colHalfSegments.setsegDirectionEvery(1, true, true);
 
   colCenSegments.setsegDirectionEvery(2, true, false);
   colCenSegments.setsegDirectionEvery(2, false, true);

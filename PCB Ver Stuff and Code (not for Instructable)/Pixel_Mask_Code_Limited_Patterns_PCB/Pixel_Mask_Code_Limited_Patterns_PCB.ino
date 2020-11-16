@@ -66,7 +66,7 @@ byte brightnessIndex = 1; //initial brightness, index of brightnessLevels array
 //brightness levels array, max is 255, but 100 should be bright enough for amost all cases
 //!!WARNING brightness is directly tied to power consumption, the max current per led is 60ma, this is for white at 255 brightness
 //if you actually run all the leds at max, the glasses will draw 4.75 amps, this is beyond the rating of the jst connectors
-const byte brightnessLevels[] = { 40, 60, 100, 240 };;
+const byte brightnessLevels[] = { 40, 60, 100, 250 };;
 const byte numBrightnessLevels = SIZE( brightnessLevels );
 
 //Strip definitions
@@ -493,7 +493,7 @@ void loop() {
       case 20:
         for (int i = 0; i < 2; i++) {
           breakEffectCheck();
-          //strip.randomWaves( colSegments, 5, 3, 2, 50, direct, 7, 20);
+          //strip.randomWaves( colSegments, 3, 3, 2, 50, direct, 7, 20);
           direct = !direct;
         }
         break;
