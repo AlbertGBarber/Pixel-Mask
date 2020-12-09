@@ -22,7 +22,7 @@
 //code intended to run on esp8266, Wemos D1 mini
 //requires lastest version of adafruit neopixel library (use the library manager)
 #include <PixelStrip.h>
-#include "segmentDefsPCB.h"
+#include "segmentDefs.h"
 #include <EEPROM.h>
 #include <Ticker.h>
 
@@ -427,25 +427,25 @@ void loop() {
         }
         break;
       case 1:
-        strip.shooterSeg( colSegments, pallet, 3, 0, 12, 1, 1, 3, 4, false, false, 60, 170);
+        strip.shooterSeg( colSegments, pallet, 3, 0, true, 12, 1, 1, 3, 4, false, false, 60, 170);
         break;
       case 2:
-        strip.shooterSeg( colSegments, pallet, 5, 0, 12, 1, 1, 3, 2, false, false, 60, 170); //rainbow
+        strip.shooterSeg( colSegments, pallet, 5, 0, true, 12, 1, 1, 3, 2, false, false, 60, 170); //rainbow
         break;
       case 3:
-        //strip.shooterSeg( rowHalfSegments, pallet, 3, 0, 10, 1, 1, 3, 4, true, false, 70, 170);
+        //strip.shooterSeg( rowHalfSegments, pallet, 3, 0, true, 10, 1, 1, 3, 4, true, false, 70, 170);
         break;
       case 4:
-        //strip.shooterSeg( rowHalfSegments, pallet, 5, 0, 10, 1, 1, 3, 2, true, false, 70, 170); //rainbow
+        //strip.shooterSeg( rowHalfSegments, pallet, 5, 0, true, 10, 1, 1, 3, 2, true, false, 70, 170); //rainbow
         break;
       case 5:
-        //strip.shooterSeg( rowHalfSegments, pallet, 5, 0, 8, 1, 3, 3, 4, true, false, 70, 150);
+        //strip.shooterSeg( rowHalfSegments, pallet, 5, 0, true, 8, 1, 3, 3, 4, true, false, 70, 150);
         break;
       case 6:
-        //strip.shooterSeg( colSegments, pallet, 5, 0, 8, 1, 3, 3, 4, false, false, 70, 150);
+        //strip.shooterSeg( colSegments, pallet, 5, 0, true, 8, 1, 3, 3, 4, false, false, 70, 150);
         break;
       case 7:
-        strip.shooterSeg( colHalfFlipSegments, pallet, 4, 0, 5, 6, 1, 6, 4, true, false, 70, 180);
+        strip.shooterSeg( colHalfFlipSegments, pallet, 4, 0, true, 5, 6, 1, 6, 4, true, false, 70, 180);
         break;
       case 8:
         //strip.genRandPallet( tempRandPallet, SIZE(tempRandPallet) );
